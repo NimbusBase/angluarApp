@@ -1,6 +1,6 @@
  
 
-angular.module('ToDo',  [])
+window.todo=angular.module('ToDo',  [])
 .controller('ToDoControl', ($scope)->
 	$scope.items = []
 	$scope.searchText=""
@@ -29,10 +29,10 @@ angular.module('ToDo',  [])
 	return null
 )
 .directive("nbclick", () ->
+		{restrict: 'AE',  
 		link : (scope, elm, attrs) ->
 	    	elm.bind('click',(evt)->
 	    		evt.preventDefault() 
-	    		alert("add")
-	    		scope.addItem()) 
+	    		scope.addItem())}
 )
 
