@@ -2,13 +2,29 @@
 (function() {
   window.ToDoControl = function($scope) {
     $scope.items = [];
+    $scope.searchText = "";
     $scope.items.push("a1");
     $scope.items.push("a2");
     $scope.items.push("a3");
     $scope.addItem = function() {
       var v;
-      v = document.getElementById("input_item").value;
+      v = $scope.input_val;
       return $scope.items.push(v);
+    };
+    $scope.editItem = function() {
+      var i;
+      i = $scope.edit_index;
+      return $scope.items[i] = $scope.edit_val;
+    };
+    $scope.deleteItem = function() {
+      var t;
+      t = $scope.delete_index;
+      return $scope.items.splice(t, 1);
+    };
+    $scope.searchItem = function() {
+      var s;
+      s = $scope.search_val;
+      return $scope.items.splice(t, 1);
     };
     return null;
   };

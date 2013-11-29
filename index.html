@@ -6,12 +6,20 @@
     
    </head>
 <body ng-app ng-controller="ToDoControl"> 
-  
+   
+value:<input type="text" id ="input_item" ng-model="input_val"/> <button type="button" ng-click="addItem()">Add</button>
+<hr/>
+index:<input type="text" id ="edit_item_index" ng-model="edit_index"/> 
+value:<input type="text" id ="edit_item" ng-model="edit_val"/> <button type="button" ng-click="editItem()">Edit</button>
+<hr/>
+index:<input type="text" id ="delete_item" ng-model="delete_index"/> <button type="button" ng-click="deleteItem()">Delete</button>
+<hr/>
+search:<input type="text" id ="search_item" ng-model="searchText"/>  
 
 
-<input type="text" id ="input_item"/> <button type="button" ng-click="addItem()">Add</button>
+
 <ul>
-<li ng-repeat="item in items">
+<li ng-repeat="item in items |filter:searchText track by $index">
 					 {{item}}
 </li>
 </ul>
