@@ -10,16 +10,20 @@ window.ToDoControl = ($scope)->
 	$scope.addItem = ()->
 		v = $scope.input_val
 		$scope.items.push(v)
+		$scope.input_val=""
 	 
 
 	$scope.editItem = ()->
 		i = $scope.edit_index
 		$scope.items[i]= $scope.edit_val
+		$scope.edit_index=""
+		$scope.edit_val=""
 
 
 	$scope.deleteItem = ()->
 		t = $scope.delete_index
 		$scope.items.splice(t,1)
+		$scope.delete_index=""
 	
 	$scope.searchItem = ()->
 		s = $scope.search_val

@@ -9,17 +9,21 @@
     $scope.addItem = function() {
       var v;
       v = $scope.input_val;
-      return $scope.items.push(v);
+      $scope.items.push(v);
+      return $scope.input_val = "";
     };
     $scope.editItem = function() {
       var i;
       i = $scope.edit_index;
-      return $scope.items[i] = $scope.edit_val;
+      $scope.items[i] = $scope.edit_val;
+      $scope.edit_index = "";
+      return $scope.edit_val = "";
     };
     $scope.deleteItem = function() {
       var t;
       t = $scope.delete_index;
-      return $scope.items.splice(t, 1);
+      $scope.items.splice(t, 1);
+      return $scope.delete_index = "";
     };
     $scope.searchItem = function() {
       var s;
