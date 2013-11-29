@@ -1,6 +1,7 @@
+ 
 
-
-window.ToDoControl = ($scope)->
+angular.module('ToDo',  [])
+.controller('ToDoControl', ($scope)->
 	$scope.items = []
 	$scope.searchText=""
 	$scope.items.push("a1")
@@ -23,16 +24,15 @@ window.ToDoControl = ($scope)->
 	$scope.deleteItem = ()->
 		t = $scope.delete_index
 		$scope.items.splice(t,1)
-		$scope.delete_index=""
-	
-	$scope.searchItem = ()->
-		s = $scope.search_val
-		$scope.items.splice(t,1)
-
-	 
-
-
-
-
+		$scope.delete_index="" 
 
 	return null
+)
+.directive("nbclick", () ->
+		link : (scope, elm, attrs) ->
+	    	elm.bind('click',(evt)->
+	    		evt.preventDefault() 
+	    		alert("add")
+	    		scope.addItem()) 
+)
+
