@@ -32,7 +32,8 @@
       link: function(scope, elm, attrs) {
         return elm.bind('click', function(evt) {
           evt.preventDefault();
-          return scope.addItem();
+          scope.addItem();
+          return scope.$parent.$apply();
         });
       }
     };

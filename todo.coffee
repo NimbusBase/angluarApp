@@ -32,7 +32,10 @@ window.todo=angular.module('ToDo',  [])
 		{restrict: 'AE',  
 		link : (scope, elm, attrs) ->
 	    	elm.bind('click',(evt)->
-	    		evt.preventDefault() 
-	    		scope.addItem())}
+	    		evt.preventDefault()
+	    		scope.addItem()
+	    		scope.$parent.$apply()
+	    		)}
+	    		# $scope.$parent.addItem())}
 )
 
